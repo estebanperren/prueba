@@ -1,10 +1,9 @@
 import React from 'react';
-const articulos = [
-    { nombre: "pepino", cantidad: "3", img: "/images/pepino.png" },
-  ];
-const ItemListContainer = () => {
+
+const ItemListContainer = ( {articulos}) => {
     return (
         <>
+
                  <span>Articulos en el carrito:</span>
             {articulos.map((articulo) => (
               <>

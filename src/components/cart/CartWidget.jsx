@@ -3,7 +3,9 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 import React from "react";
 import ItemListContainer from "./ItemListContainer";
-
+const articulos = [
+  { nombre: "pepino", cantidad: "3", img: "/images/pepino.png" },
+];
 
 const CartWidget = () => {
   return (
@@ -22,7 +24,7 @@ const CartWidget = () => {
             Carrito
           </a>
           <div className="dropdown-menu" style={{}}>
-     <ItemListContainer/>
+     <ItemListContainer articulos={articulos} />
           </div>
         </li>
       </ul>
