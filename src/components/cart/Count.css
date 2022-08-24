@@ -1,0 +1,11 @@
+.count{
+    display: inline;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    border: 0.025rem solid; 
+    border-color: primary;
+}
+.count *{
+margin-left: 0.5rem;
+margin-right: 0.5rem;
+}
