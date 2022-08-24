@@ -1,18 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import UseCounter from "./useCounter";
 
-export default function ItemCount({ articulo }) {
+export default function ItemCount({ articulo, onAdd }) {
 
-  const [count, setCount] = useState(0);
-  function add(stock) {
-    if (count < stock) {
-      setCount(count + 1);
-    }
-  }
-
-  function substract() {
-    if (count > 0) setCount(count - 1);
-  }
-
+  const {add, substract, count} = UseCounter();
   return (
     <>
 <div className="count">    
@@ -20,6 +11,8 @@ export default function ItemCount({ articulo }) {
       <span >{count}</span>
       <a  onClick={() => add( articulo.stock )}>+</a>
 </div>
+<p><button style={{margin: "1rem"}} onClick={()=>onAdd(count,articulo)}>+AGREGAR</button></p>
+
     </>
   );
 }

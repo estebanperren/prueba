@@ -1,6 +1,11 @@
+import { isFocusable } from "@testing-library/user-event/dist/utils";
 import React from "react";
 import ItemCount from "../cart/ItemCount";
 export default function Item({ articulos, onAdd}) {
+  function onAdd(count, articulo){
+    if(count>0 && count <= articulo.stock )
+    console.log(`Se agrego correctamente ${count} unidades de ${articulo.nombre} al carrito` )
+      }
 
   return (
     <>
@@ -12,8 +17,7 @@ export default function Item({ articulos, onAdd}) {
             <img src={articulo.img} alt={articulo.nombre} width="50%" />
             <p className="card-text">{articulo?.descripcion}</p>         
             <p className="card-text">{articulo?.precio}</p>
-        <ItemCount articulo={articulo} />
-        <p><button style={{margin: "1rem"}} onClick={()=>onAdd()}>+AGREGAR</button></p>
+        <ItemCount articulo={articulo} onAdd={onAdd} />
           </div>
         </div>
       ))}

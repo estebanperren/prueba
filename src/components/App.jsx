@@ -11,9 +11,6 @@ function App() {
   const articulos = [
     { nombre: "pepino", descripcion:"los mejores pepinos", stock: 25, img: "/images/pepino.png" },
   ];
-  function onAdd(){
-    console.log(`Se agrego correctamente el producto al carrito` )
-      }
 
   return (
     <>
@@ -21,7 +18,7 @@ function App() {
       <Navbar />
     </div>
     <div>
-          <Item articulos={articulos} onAdd={onAdd} />
+          <Item articulos={articulos} />
          </div>
           </>
   );
