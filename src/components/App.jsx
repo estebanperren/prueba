@@ -9,9 +9,11 @@ function App() {
 
 
   const articulos = [
-    { nombre: "pepino", stock: 25, cantidad: "3", img: "/images/pepino.png" },
+    { nombre: "pepino", descripcion:"los mejores pepinos", stock: 25, img: "/images/pepino.png" },
   ];
-
+  function onAdd(){
+    console.log(`Se agrego correctamente el producto al carrito` )
+      }
 
   return (
     <>
@@ -19,7 +21,7 @@ function App() {
       <Navbar />
     </div>
     <div>
-          <Item articulos={articulos} />
+          <Item articulos={articulos} onAdd={onAdd} />
          </div>
           </>
   );
