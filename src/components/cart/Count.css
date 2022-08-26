@@ -8,4 +8,12 @@
 .count *{
 margin-left: 0.5rem;
 margin-right: 0.5rem;
+user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.count a{ 
+font-weight: 100;
+    cursor: pointer;   
 }

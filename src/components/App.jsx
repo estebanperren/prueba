@@ -1,16 +1,14 @@
 import "./App.css";
-import Item from "./cards/Item";
 import "./cards/Card.css"
 import "./cart/Count.css"
 
 import Navbar from "./navbar/Navbar";
+import ItemList from "./cards/ItemList";
 
 function App() {
 
 
-  const articulos = [
-    { nombre: "pepino", descripcion:"los mejores pepinos", stock: 25, img: "/images/pepino.png" },
-  ];
+
 
   return (
     <>
@@ -18,7 +16,7 @@ function App() {
       <Navbar />
     </div>
     <div>
-          <Item articulos={articulos} />
+          <ItemList />
          </div>
           </>
   );

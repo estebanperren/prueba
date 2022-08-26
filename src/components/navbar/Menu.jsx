@@ -10,8 +10,8 @@ const Menu = () => {
     return (
         <>
           <ul className="navbar-nav me-auto">
-            { valores.map( valor =>(
-                <li className="nav-item">
+            { valores.map( (valor, indice) =>(
+                <li key={indice} className="nav-item">
                 <a className="nav-link active" href={valor.href}>
                 {valor.texto}
                 </a>
