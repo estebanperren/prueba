@@ -2,7 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 import React from "react";
-import ItemListContainer from "./ItemListContainer";
+import CartListContainer from "./CartListContainer";
+
 const articulos = [
   { nombre: "pepino", cantidad: "3", img: "/images/pepino.png" },
 ];
@@ -24,7 +25,7 @@ const CartWidget = () => {
             Carrito
           </a>
           <div className="dropdown-menu" style={{}}>
-     <ItemListContainer articulos={articulos} />
+     <CartListContainer articulos={articulos} />
           </div>
         </li>
       </ul>

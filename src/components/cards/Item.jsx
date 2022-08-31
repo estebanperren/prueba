@@ -1,5 +1,5 @@
 import React from "react";
-import ItemCount from "../cart/ItemCount";
+import ItemCount from "../ItemCount";
 export default function Item({articulo}) {
   function onAdd(count, articulo){
     if(count>0 && count <= articulo.stock )

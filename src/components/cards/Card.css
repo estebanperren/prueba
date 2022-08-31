@@ -3,3 +3,12 @@
 margin: 0.5rem;
 float: left;
 }
+.detail{
+    padding: 5%;
+    width: 75%;
+
+}
+.detail img{
+width: 50%;
+
+}
