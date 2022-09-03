@@ -1,3 +1,27 @@
+Proyecto creado por Perren Esteban en el curso de React en CoderHouse.
+Estructura:
+-Components
+    -Cards  #Plantillas de tarjetas de item e itemDetail
+    -Cart   #Componentes correspondiente al carrito
+    -Forms  #Formulario de busqueda
+    -Navbar #Componentes del navbar
+    -Pages:  #Paginas del sitio web
+        -About      #pagina de informacion de la empresa
+        -Contact    #Pagina de contacto
+        -Products   #Pagina de productos
+    .App.jsx                    #Componente de carga inicial y configuracion de rutas
+    .ItemCount.jsx              #Contador y boton de +Agregar
+    .ItemDetailContainer.jsx    #Pagina de detalle de producto
+    .ItemList.jsx               #Funcion map para listar productos
+    .ItemListContainer.jsx      #Pagina con listado de productos
+    -Hooks:
+        .UseConnection.jsx          #Hook para simular coneccion a la bd y solicitud de productos
+        .UseCounter.jsx             #Hook con funciones para el boton contador
+
+
+Archivo Gif en la carpeta public/preentrega.gif
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

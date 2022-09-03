@@ -1,6 +1,7 @@
 import React from "react";
 
 const CartListContainer = ({ articulos }) => {
+console.log({articulos})
   return (
     <>
       <span>Articulos en el carrito:</span>
@@ -12,7 +13,7 @@ const CartListContainer = ({ articulos }) => {
               {articulo.nombre}
 
               <span className="badge bg-primary rounded-pill">
-                {articulo.cantidad}
+                {articulo?.cantidad}
               </span>
             </li>
       ))}

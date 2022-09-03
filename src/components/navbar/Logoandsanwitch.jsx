@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Logoandsanwitch = () => {
     return (
         <>
-           <a className="navbar-brand" href="#">
-            Navbar
-          </a>
+           <span className="navbar-brand" >
+           <Link className="nav-link" to={"/"}>NAVBAR</Link>
+          </span>
           <button
             className="navbar-toggler"
             type="button"
