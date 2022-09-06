@@ -1,14 +1,19 @@
-import React from 'react';
-import UseCounter from '../../hooks/useCounter';
+import React, { useState } from 'react';
 import ItemCount from '../ItemCount';
-import Item from './Item';
+import CheckOut from './CheckOut';
 
-function onAdd(count, articulo){
-  if(count>0 && count <= articulo.stock )
-  console.log(`Se agrego correctamente ${count} unidades de ${articulo.nombre} al carrito` )
-    }
+
+
+
 const ItemDetail = ({articulos}) => {
-  
+  const [showCount, setShowCount] = useState(true);
+  function onAdd(count, articulo){
+    if(count>0 && count <= articulo.stock ){
+    const artOnCart = {id: articulo.id, cantidad: count}
+    setShowCount(false)
+    console.log(artOnCart )
+  }
+      }
   return <>{
     articulos.map((articulo, indice) => (
       <div key={indice} className="card detail col-6 col-6 col-sm-12">
@@ -19,7 +24,10 @@ const ItemDetail = ({articulos}) => {
       <p>{articulo.description}</p>
       <p>${articulo.price}</p>
       <p>STOCK DISPONIBLE: {articulo.stock}</p>
-      <ItemCount articulo={articulo} onAdd={onAdd} />
+
+      {showCount ? <ItemCount articulo={articulo} onAdd={onAdd} /> : <p className={"alert-success"}>Articulo agregado al carrito</p>}
+      {!showCount ? <CheckOut/> : null}
+
       </div>
     </div>
     </div>

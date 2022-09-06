@@ -9,6 +9,7 @@ import Navbar from "./navbar/Navbar";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import Products from "./pages/products/Products";
+import CartListContainer from "./cart/CartListContainer";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
     <Route path='/products' element={<Products/>}></Route>
     <Route path='/product/:id' element={<ItemDetailContainer/>}></Route>
     <Route path='/category/:category' element={<ItemListContainer/>}></Route>
+    <Route path='/cart' element={<CartListContainer/>}></Route>
+
 
     </Routes>    
     </BrowserRouter>
