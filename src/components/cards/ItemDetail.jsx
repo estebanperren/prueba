@@ -1,19 +1,46 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import CheckOut from '../buttons/CheckOut';
+import ItemDelete from '../buttons/ItemDelete';
+import { CartContext } from '../context/CartContext';
 import ItemCount from '../ItemCount';
-import CheckOut from './CheckOut';
+
 
 
 
 
 const ItemDetail = ({articulos}) => {
+  const { addItem, isInCart, removeItem } = useContext(CartContext);
   const [showCount, setShowCount] = useState(true);
+
+
   function onAdd(count, articulo){
-    if(count>0 && count <= articulo.stock ){
-    const artOnCart = {id: articulo.id, cantidad: count}
+    if(count>0 && count <= articulo.stock){
+    addItem(articulo, count)
     setShowCount(false)
-    console.log(artOnCart )
   }
       }
+  
+      function onDel(articuloId){
+        if(isInCart(articuloId)){
+          console.log("articulo eliminado")
+        removeItem(articuloId)
+        setShowCount(true)
+
+      }
+          }
+function ShowCount(articuloId){
+  useEffect(() => {
+    if(isInCart(articuloId))
+    setShowCount(false)
+  else{
+    setShowCount(true)
+  
+  }
+  }, []);
+
+}
+  
+  
   return <>{
     articulos.map((articulo, indice) => (
       <div key={indice} className="card detail col-6 col-6 col-sm-12">
@@ -24,9 +51,9 @@ const ItemDetail = ({articulos}) => {
       <p>{articulo.description}</p>
       <p>${articulo.price}</p>
       <p>STOCK DISPONIBLE: {articulo.stock}</p>
-
-      {showCount ? <ItemCount articulo={articulo} onAdd={onAdd} /> : <p className={"alert-success"}>Articulo agregado al carrito</p>}
-      {!showCount ? <CheckOut/> : null}
+      {ShowCount(articulo.id)}
+      { (showCount) ? <ItemCount articulo={articulo} onAdd={onAdd} /> : <p> <span style={{marginRight: "1rem"}} className={"alert-success"}>Articulo agregado al carrito </span><ItemDelete articuloId={articulo.id} onDel={onDel} /></p>}
+      {  (!showCount) ? <CheckOut/> : null}
 
       </div>
     </div>

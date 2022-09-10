@@ -10,10 +10,12 @@ import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import Products from "./pages/products/Products";
 import CartListContainer from "./cart/CartListContainer";
+import { useContext } from "react";
+import { CartContext } from "./context/CartContext";
 
 function App() {
+
   return (
-    <>
     <BrowserRouter>
           <Navbar />
 
@@ -30,7 +32,6 @@ function App() {
     </Routes>    
     </BrowserRouter>
 
-          </>
   );
 }
 
