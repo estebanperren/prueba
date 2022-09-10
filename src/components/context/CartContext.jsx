@@ -1,26 +1,24 @@
 import React, { createContext, useState } from "react";
 
 const CartContext = createContext();
-const CartProvider = (props) => {
+const CartProvider = ({children}) => {
 
   const [cart, setCart] = useState([]);
 
 
   const addItem = (item, quantity) => {
     const prodOnAdd = {item: item, cantidad: quantity };
-    const carrito = cart;
     if(!isInCart(item.id)) {
-    carrito.push(prodOnAdd)
-    setCart(carrito);
+    cart.push(prodOnAdd)
+    setCart([...cart]);
     console.log(cart)}
   };
 
 
   const removeItem = (id) => {
-    const carrito = cart;
-    let itemid = carrito.findIndex(data => data.item.id === id)
-carrito.splice(itemid)
-setCart(carrito);
+    let itemid = cart.findIndex(data => data.item.id === id)
+cart.splice(itemid)
+setCart([...cart]);
     console.log(cart)
   }; 
 
@@ -38,10 +36,14 @@ const isInCart = (id) => {
     return true;
 }
 
+const getTotal = () => {
+ return cart.reduce((acc, curr) => acc + (curr.item.price * curr.cantidad), 0);
+  
+}
   return (
     <>
-      <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart }}>
-        {props.children}
+      <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, getTotal }}>
+        {children}
       </CartContext.Provider>
     </>
   );

@@ -5,6 +5,7 @@ const valores = [
     { texto: "Productos", href: "/products"},
     { texto: "Nosotros", href: "about" },
     { texto: "Contacto", href: "/contact" },
+    { texto: "Finalizar Compra", href: "/cart"}
 ]
 const Menu = () => {
     return (
