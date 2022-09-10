@@ -7,18 +7,23 @@ const CartProvider = ({children}) => {
 
 
   const addItem = (item, quantity) => {
+    const carrito = cart
     const prodOnAdd = {item: item, cantidad: quantity };
     if(!isInCart(item.id)) {
-    cart.push(prodOnAdd)
-    setCart([...cart]);
+    carrito.push(prodOnAdd)
+    setCart(carrito);
+    console.log("articulo agregado")
     console.log(cart)}
   };
 
 
+
   const removeItem = (id) => {
+    const carrito = cart
     let itemid = cart.findIndex(data => data.item.id === id)
-cart.splice(itemid)
-setCart([...cart]);
+carrito.splice(itemid)
+setCart([...carrito]);
+console.log("articulo eliminado")
     console.log(cart)
   }; 
 

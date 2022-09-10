@@ -20,7 +20,6 @@ const ItemDetail = ({articulos}) => {
   
       function onDel(articuloId){
         if(isInCart(articuloId)){
-          console.log("articulo eliminado")
         removeItem(articuloId)
 
       }
