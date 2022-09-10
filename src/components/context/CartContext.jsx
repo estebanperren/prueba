@@ -11,7 +11,8 @@ const CartProvider = ({children}) => {
     const prodOnAdd = {item: item, cantidad: quantity };
     if(!isInCart(item.id)) {
     carrito.push(prodOnAdd)
-    setCart(carrito);
+    setCart([...carrito]) //ASI SI RENDERIZA
+   // setCart(carrito); //ASI NO RENDERIZA
     console.log("articulo agregado")
     console.log(cart)}
   };
@@ -22,7 +23,8 @@ const CartProvider = ({children}) => {
     const carrito = cart
     let itemid = cart.findIndex(data => data.item.id === id)
 carrito.splice(itemid)
-setCart([...carrito]);
+setCart([...carrito]); //ASI SI RENDERIZA
+//setCart(carrito) //ASI NO RENDERIZA
 console.log("articulo eliminado")
     console.log(cart)
   }; 
