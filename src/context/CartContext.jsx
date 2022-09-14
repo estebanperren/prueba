@@ -22,7 +22,7 @@ const CartProvider = ({children}) => {
   const removeItem = (id) => {
     const carrito = cart
     let itemid = cart.findIndex(data => data.item.id === id)
-carrito.splice(itemid)
+carrito.splice(itemid,1)
 setCart([...carrito]); //ASI SI RENDERIZA
 //setCart(carrito) //ASI NO RENDERIZA
 console.log("articulo eliminado")
@@ -47,9 +47,13 @@ const getTotal = () => {
  return cart.reduce((acc, curr) => acc + (curr.item.price * curr.cantidad), 0);
   
 }
+const getCantidad = () => {
+  return cart.reduce((acc, curr) => acc + (curr.cantidad), 0);
+   
+ }
   return (
     <>
-      <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, getTotal }}>
+      <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, getTotal, getCantidad }}>
         {children}
       </CartContext.Provider>
     </>

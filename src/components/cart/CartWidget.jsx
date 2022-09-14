@@ -1,35 +1,26 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-
 import React from "react";
-import CartListContainer from "./CartListContainer";
-
-const articulos = [
-  { nombre: "pepino", cantidad: "3", img: "/images/pepino.png" },
-];
+import { Link } from "react-router-dom";
+import "./CartWidget.css"
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 const CartWidget = () => {
+  const {getCantidad} = useContext(CartContext);
   return (
-    <div>
-      <ul className="nav nav-pills">
-        <li className="nav-item dropdown">
-          <a
-            className="nav-link dropdown-toggle"
-            data-bs-toggle="dropdown"
-            href="#"
-            role="button"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
+    <>
+      <ul className="navbar-nav me-auto" style={{display: (getCantidad()!==0) ? 'block' : 'none'}}>
+        <li className="nav-item ">
+          <Link to="/cart">
             <FontAwesomeIcon icon={faCartShopping} />
-            Carrito
-          </a>
-          <div className="dropdown-menu" style={{}}>
-     <CartListContainer articulos={articulos} />
-          </div>
-        </li>
-      </ul>
-    </div>
+            <span class='badge badge-warning' id='lblCartCount'> {getCantidad()} </span>
+            
+            </Link>
+</li>
+</ul>
+
+    </>
   );
 };
 

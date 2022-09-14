@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { CartContext } from '../../context/CartContext';
 
-const ItemDelete = ({articuloId, onDel, titleShow=true}) => {
+const ItemDelete = ({articuloId, titleShow=true}) => {
+const {removeItem} = useContext(CartContext);
     return (
         <>
-           <button onClick={()=>onDel(articuloId)} type="button" className="btn btn-danger"> 
+           <i onClick={()=>removeItem(articuloId)} className={"trash"}> 
            <FontAwesomeIcon icon={faTrashAlt} />
            {titleShow ? "Eliminar" : null} 
-            </button>
+            </i>
             
         </>
     );

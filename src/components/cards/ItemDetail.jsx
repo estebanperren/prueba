@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import CheckOut from '../buttons/CheckOut';
 import ItemDelete from '../buttons/ItemDelete';
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '../../context/CartContext';
 import ItemCount from '../ItemCount';
 
 
@@ -18,12 +18,7 @@ const ItemDetail = ({articulos}) => {
   }
       }
   
-      function onDel(articuloId){
-        if(isInCart(articuloId)){
-        removeItem(articuloId)
 
-      }
-          }
   
   
   return <>{
@@ -36,7 +31,7 @@ const ItemDetail = ({articulos}) => {
       <p>{articulo.description}</p>
       <p>${articulo.price}</p>
       <p>STOCK DISPONIBLE: {articulo.stock}</p>
-      { (!isInCart(articulo.id)) ? <ItemCount articulo={articulo} onAdd={onAdd} /> : <p> <span style={{marginRight: "1rem"}} className={"alert-success"}>Articulo agregado al carrito </span><ItemDelete articuloId={articulo.id} onDel={onDel} /></p>}
+      { (!isInCart(articulo.id)) ? <ItemCount articulo={articulo} onAdd={onAdd} /> : <p> <span style={{marginRight: "1rem"}} className={"alert-success"}>Articulo agregado al carrito </span><ItemDelete articuloId={articulo.id} /></p>}
       {  (isInCart(articulo.id)) ? <CheckOut/> : null}
 
       </div>
