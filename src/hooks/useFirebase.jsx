@@ -14,7 +14,7 @@ import React, { useCallback, useEffect, useState } from "react";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyArH82eWZx_udDhk2CYUy25i59apB1ZNks",
+  apiKey: process.env.API_KEY,
   authDomain: "perrenesteban-ec14e.firebaseapp.com",
   projectId: "perrenesteban-ec14e",
   storageBucket: "perrenesteban-ec14e.appspot.com",
