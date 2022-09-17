@@ -12,7 +12,6 @@ import Products from "./pages/products/Products";
 import Cart from "./cart/Cart";
 
 function App() {
-
   return (
     <BrowserRouter>
           <Navbar />

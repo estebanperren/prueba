@@ -14,7 +14,7 @@ const CartWidget = () => {
         <li className="nav-item ">
           <Link to="/cart">
             <FontAwesomeIcon icon={faCartShopping} />
-            <span class='badge badge-warning' id='lblCartCount'> {getCantidad()} </span>
+            <span className='badge badge-warning' id='lblCartCount'> {getCantidad()} </span>
             
             </Link>
 </li>

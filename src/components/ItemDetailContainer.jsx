@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import UseConnection from '../hooks/useConnection';
+import UseFirebase from '../hooks/useFirebase';
 import ItemDetail from './cards/ItemDetail';
 
-const getItem = (id) =>{
-    return UseConnection(id)
-}
+
 const ItemDetailContainer = () => {
     const {id} = useParams()
-    const {isLoading, articulos} = getItem(id)
+    const {isLoading, items, getById} = UseFirebase()
+useEffect(() => {
+getById(id)
+}, []);
 
     return (isLoading ? <h1>Cargando...</h1> : 
         <>
         <div className="container">
   <div className="row">
-          <ItemDetail articulos={articulos} />  
+          <ItemDetail articulos={items} />  
         </div>
         </div>
         </>

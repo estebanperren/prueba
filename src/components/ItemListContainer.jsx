@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import UseConnection from '../hooks/useConnection';
 import ItemList from './ItemList';
+import UseFirebase from "../hooks/useFirebase";
 
 const ItemListContainer = () => {
   const {category} = useParams()
-  const {isLoading, articulos} = UseConnection(-1, category)
+  const { isLoading, items, getAll, getByCategory} = UseFirebase()
+  useEffect(() => {
+    if(category)
+    getByCategory(category)
+    else
+getAll()
+}, [category]); 
+  const articulos= items;
   return isLoading ? <h1>Cargando...</h1> : <ItemList articulos={articulos} />  
         
     
