@@ -57,7 +57,7 @@ const getCantidad = () => {
  return user
  }
  const getCartForFirebase = () =>{
-  return cart.reduce((aux, curr) => aux.concat({name: curr.item.title, image: curr.item.images[0], count: curr.cantidad, price: curr.item.price}), []);
+  return cart.reduce((aux, curr) => aux.concat({id: curr.item.id, title: curr.item.title, image: curr.item.images[0], count: curr.cantidad, price: curr.item.price}), []);
 
  }
   return (

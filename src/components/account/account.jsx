@@ -8,7 +8,7 @@ const Account = () => {
     const { getOrdersByUser } = UseFirebase()
 
     function parseDate(fecha){
-        let today = fecha.toDate()
+        let today = new Date(fecha)
         let date = today.getDate() + '-' + parseInt(today.getMonth() + 1) + '-' + today.getFullYear()
         return date
     }
