@@ -29,6 +29,7 @@ const Checkout = () => {
         <div className="invoice p-5">
             <h6>{parseDate(order.date)}</h6>
           <h4>Gracias por su compra.</h4>
+          <h4>N°: {order.id}</h4>
           <span className="font-weight-bold d-block mt-4">Hola, {user.name}</span>
           <span>Tu compra ha sido confirmada.</span>
       <hr/>
