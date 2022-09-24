@@ -51,9 +51,18 @@ const getCantidad = () => {
   return cart.reduce((acc, curr) => acc + (curr.cantidad), 0);
    
  }
+
+ const getUser = () =>{
+  const user = require('../usuario.json')
+ return user
+ }
+ const getCartForFirebase = () =>{
+  return cart.reduce((aux, curr) => aux.concat({name: curr.item.title, image: curr.item.images[0], count: curr.cantidad, price: curr.item.price}), []);
+
+ }
   return (
     <>
-      <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, getTotal, getCantidad }}>
+      <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, getTotal, getCantidad, getUser, getCartForFirebase }}>
         {children}
       </CartContext.Provider>
     </>

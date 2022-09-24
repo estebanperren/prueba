@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import CheckOut from '../buttons/CheckOut';
+import CheckOut from '../buttons/GoToCart';
 import ItemDelete from '../buttons/ItemDelete';
 import { CartContext } from '../../context/CartContext';
 import ItemCount from '../ItemCount';
+import GoToCart from '../buttons/GoToCart';
 
 
 
@@ -31,8 +32,8 @@ const ItemDetail = ({articulos}) => {
       <p>{articulo.description}</p>
       <p>${articulo.price}</p>
       <p>STOCK DISPONIBLE: {articulo.stock}</p>
-      { (!isInCart(articulo.id)) ? <ItemCount articulo={articulo} onAdd={onAdd} /> : <p> <span style={{marginRight: "1rem"}} className={"alert-success"}>Articulo agregado al carrito </span><ItemDelete articuloId={articulo.id} /></p>}
-      {  (isInCart(articulo.id)) ? <CheckOut/> : null}
+      { (!isInCart(articulo.id)) ? <ItemCount articulo={articulo} onAdd={onAdd} /> : <p> <strong style={{marginRight: "1rem", color: 'green'}} >Articulo agregado al carrito </strong><ItemDelete articuloId={articulo.id} /></p>}
+      {  (isInCart(articulo.id)) ? <GoToCart/> : null}
 
       </div>
     </div>

@@ -1,0 +1,13 @@
+.loader {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    height: 100%;
+  }
+  .loader img{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 5rem;
+  }

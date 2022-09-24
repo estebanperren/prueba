@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
 import UseFirebase from "../hooks/useFirebase";
+import Loading from './loading/Loading';
 
 const ItemListContainer = () => {
   const {category} = useParams()
@@ -13,7 +14,7 @@ const ItemListContainer = () => {
 getAll()
 }, [category]); 
   const articulos= items;
-  return isLoading ? <h1>Cargando...</h1> : <ItemList articulos={articulos} />  
+  return isLoading ? <Loading /> : <ItemList articulos={articulos} />  
         
     
 }

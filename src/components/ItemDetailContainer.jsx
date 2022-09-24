@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import UseFirebase from '../hooks/useFirebase';
 import ItemDetail from './cards/ItemDetail';
+import Loading from './loading/Loading';
 
 
 const ItemDetailContainer = () => {
@@ -11,7 +12,7 @@ useEffect(() => {
 getById(id)
 }, []);
 
-    return (isLoading ? <h1>Cargando...</h1> : 
+    return (isLoading ? <Loading />  : 
         <>
         <div className="container">
   <div className="row">
