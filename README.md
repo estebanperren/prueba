@@ -1,6 +1,9 @@
 Proyecto creado por Perren Esteban en el curso de React en CoderHouse.
 Dicho proyecto es un E-commerce desarrollado en React. El mismo es responsive. 
-
+Tipo de sitio: E-Commerce
+Leguaje: JavaScript
+Libreria: React
+Base de datos: Firebase
 
 # Demo
 Puedes probar el proyecto funcionando en la siguiente url:
