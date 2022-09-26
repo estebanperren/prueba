@@ -10,7 +10,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -27,8 +27,7 @@ const db = getFirestore(app);
 
 function UseFirebase() {
   const [items, setItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [checkOut, setCheckOut] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function cargarBaseDeDatos() {
     const promise = await fetch("https://dummyjson.com/products");
@@ -49,7 +48,6 @@ function UseFirebase() {
   }
 
   const getAll = useCallback(async (collect = "products") => {
-    console.log("llamo a getall");
     setIsLoading(true);
     const aux = [];
     const querySnapshot = await getDocs(collection(db, collect));
@@ -62,7 +60,6 @@ function UseFirebase() {
   }, []);
 
   const getById = useCallback(async (id) => {
-    console.log("llamo a getbyid");
     setIsLoading(true);
     const aux = items;
     const docRef = doc(db, "products", id);
@@ -72,34 +69,25 @@ function UseFirebase() {
       let product = { id: docSnap.id, ...docSnap.data() };
       aux.push(product);
       setItems([...aux]);
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
     }
     setIsLoading(false);
   }, []);
 
   const getOrderById = useCallback(async (id) => {
-    console.log("llamo a getOrderbyid");
     setIsLoading(true);
     let order = {};
-    const aux = items;
     const docRef = doc(db, "orders", id);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
       order = { id: docSnap.id, ...docSnap.data() };
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
     }
     setIsLoading(false);
-    console.log(order);
+
     return order;
   }, []);
 
   const getByCategory = useCallback(async (category = "") => {
-    console.log("llamo a getbycategory");
     setIsLoading(true);
 
     const aux = [];
@@ -122,15 +110,11 @@ function UseFirebase() {
   }, []);
 
   const getOrdersByUser = useCallback(async (user) => {
-    console.log("llamo a getOrderByUsers");
     setIsLoading(true);
 
     const aux = [];
 
-    const q = query(
-      collection(db, "orders"),
-      where("buyer", "==", user)
-    );
+    const q = query(collection(db, "orders"), where("buyer", "==", user));
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
@@ -138,10 +122,11 @@ function UseFirebase() {
       let order = { id: doc.id, ...doc.data() };
       aux.push(order);
     });
+    aux.sort((a,b)=>a.date-b.date);
 
     setIsLoading(false);
-    console.log(aux)
-return aux
+
+    return aux;
   }, []);
 
   const addOrder = useCallback(async (user = "", cart = [], total = 0) => {
@@ -153,10 +138,6 @@ return aux
       total: total,
     };
     const docRef = await addDoc(collection(db, "orders"), order);
-    if (docRef.id) {
-      setCheckOut(true);
-    }
-
     setIsLoading(false);
     return docRef.id;
   }, []);
@@ -170,7 +151,6 @@ return aux
     getOrderById,
     getOrdersByUser,
     addOrder,
-    
   };
 }
 export default UseFirebase;

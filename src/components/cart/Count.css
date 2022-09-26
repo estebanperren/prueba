@@ -1,19 +1,23 @@
-.count{
-    display: inline;
-    padding-left: 0.1rem;
-    padding-right: 0.1rem;
-    border: 0.025rem solid; 
-    border-color: primary;
+.count {
+  background-color: white;
+  display: inline;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+  border: 0.025rem solid;
+  border-color: primary;
+  font-size: 18px;
+  font-weight: 400;
 }
-.count *{
-margin-left: 0.5rem;
-margin-right: 0.5rem;
-user-select: none;
+.count * {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
 }
-.count a{ 
-font-weight: 100;
-    cursor: pointer;   
+.count a {
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
 }

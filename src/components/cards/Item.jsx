@@ -1,25 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ItemCount from "../ItemCount";
-export default function Item({articulo}) {
- 
-
+export default function Item({ articulo }) {
   return (
     <>
-
-        <div  className="card col-lg-2 col-md-3 col-sm-12">
-          <div className="card-body">
-            <h4 className="card-title">{articulo.title}</h4>
-            <h6 className="card-subtitle mb-2 text-muted">Marca: {articulo?.brand}</h6>
-            <h6 className="card-subtitle mb-2 text-muted">Stock: {articulo?.stock}</h6>
-            <img src={articulo.images[0]} alt={articulo.title} width="50%" />
-            <p className="card-text">{articulo?.description}</p>         
-            <p className="card-text">${articulo?.price}</p>
-            <Link className="nav-link" to={`/product/${articulo.id}`}> <button type="button" className="btn btn-light">Ver Detalle</button>
-</Link>
+      <div className="col-md-3 col-sm-6">
+        <div className="product-grid item">
+          <div className="product-image">
+            <img
+              className="pic-1"
+              src={articulo.images[0]}
+              alt={articulo.title}
+            />
+          </div>
+          <div className="product-content">
+            <span className="brand">{articulo?.brand}</span>
+            <h3 className="title">{articulo.title}</h3>
+            <div className="price">${articulo?.price}</div>
+            <Link
+              className="add-to-cart bg-primary"
+              to={`/product/${articulo.id}`}
+            >
+              Ver
+            </Link>
           </div>
         </div>
-
+      </div>
     </>
   );
 }

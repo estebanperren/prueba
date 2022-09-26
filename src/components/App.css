@@ -41,11 +41,22 @@
   background-color: black;
   color: antiquewhite;
 }
-.trash{
+.trash {
   color: red;
 }
-.trash:hover{
+.trash:hover {
   color: black;
 }
-
-
+.home {
+  margin-top: 1%;
+}
+.navbar-nav .nav-link.active{
+  color: blue;
+  font-weight: 600;
+}
+.clearcart{
+  color:red;
+  left: 0;
+  margin-top: 10rem;
+  cursor: pointer;
+}
