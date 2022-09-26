@@ -1,4 +1,10 @@
 Proyecto creado por Perren Esteban en el curso de React en CoderHouse.
+Dicho proyecto es un E-commerce desarrollado en React. El mismo es responsive. 
+
+
+# Demo
+Puedes probar el proyecto funcionando en la siguiente url:
+https://coderhouse-fawn.vercel.app/
 
 # Estructura de directorios
 
