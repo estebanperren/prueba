@@ -49,7 +49,7 @@ const Cart = () => {
                       <h5 className="mb-3">Tu Compra</h5>
                       <hr />
                       <CartList tag={"h5"} description={false} />
-                     <div className="clearcart" onClick={()=>{clear()}}>Vaciar Carrito</div>
+                      <p className="clearcart" onClick={()=>{clear()}}>Vaciar Carrito</p>
                     </div>
                     <div className="col-sm-12 col-lg-5">
                       <div className="card bg-primary text-white rounded-3">
