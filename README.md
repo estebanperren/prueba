@@ -9,6 +9,8 @@ Base de datos: Firebase
 Puedes probar el proyecto funcionando en la siguiente url:
 https://coderhouse-fawn.vercel.app/
 
+Tambien puedes encontrar un Gif con el ejemplo de navegacion y proceso de compra.
+
 # Estructura de directorios
 
 -Components
